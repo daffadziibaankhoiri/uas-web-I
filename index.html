@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FixITin</title>
+    <link href="style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body style="background-color: #e8e1c3;">
+    <nav class="navbar navbar-light" style="background-color: #014c4a;">
+    <div class="container-fluid">
+        <a class="navbar-brand" style="color: white;">FixITin</a>
+        <form class="d-flex" onsubmit="return handleSearch(event)">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn" style="background-color: #d42824; color: white;" type="submit">Search</button>
+        </form>
+    </div>
+    </nav>
+    <div class="hero d-flex align-items-center justify-content-center text-center text-white">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="fw-bold">Bingung Soal IT? Tanya Aja!</h1>
+            <p class="fs-5">Konsultasi gratis untuk masalah hardware, software, dan jaringan kamu</p>
+            <a href="#form-konsultasi" class="btn btn-lg btn-cta">Mulai Konsultasi</a>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Layanan Konsultasi Kami</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card service-card h-100 text-center shadow-sm p-4">
+                    <div class="card-body">
+                        <div class="service-icon">
+                            <i class="bi bi-cpu"></i>
+                        </div>
+                        <h5 class="card-title">Hardware</h5>
+                        <p class="card-text">Masalah laptop, PC, atau perangkat keras lainnya</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card service-card h-100 text-center shadow-sm p-4">
+                    <div class="card-body">
+                        <div class="service-icon">
+                            <i class="bi bi-code-slash"></i>
+                        </div>
+                        <h5 class="card-title">Software</h5>
+                        <p class="card-text">Error aplikasi, instalasi, atau konfigurasi software</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card service-card h-100 text-center shadow-sm p-4">
+                    <div class="card-body">
+                        <div class="service-icon">
+                            <i class="bi bi-wifi"></i>
+                        </div>
+                        <h5 class="card-title">Jaringan</h5>
+                        <p class="card-text">WiFi, internet lambat, atau masalah koneksi</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+                <div class="card service-card h-100 text-center shadow-sm p-4">
+                    <div class="card-body">
+                        <div class="service-icon">
+                            <i class="bi bi-question-circle"></i>
+                        </div>
+                        <h5 class="card-title">Lainnya</h5>
+                        <p class="card-text">Pertanyaan umum seputar teknologi</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Pertanyaan yang Sudah Diterima</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card question-card h-100 shadow-sm p-4">
+                    <div class="card-body">
+                        <span class="badge badge-topik badge-software mb-3">Software</span>
+                        <h5 class="card-title">Daffa D. K.</h5>
+                        <p class="card-text">Laptop saya sering muncul "Blue Screen" setiap kali membuka aplikasi desain. Apakah ini masalah software atau driver?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card question-card h-100 shadow-sm p-4">
+                    <div class="card-body">
+                        <span class="badge badge-topik badge-hardware mb-3">Hardware</span>
+                        <h5 class="card-title">D. Dziiba'an K.</h5>
+                        <p class="card-text">PC saya tiba-tiba mati sendiri saat dipakai untuk gaming. Kira-kira komponen apa yang perlu dicek terlebih dahulu?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card question-card h-100 shadow-sm p-4">
+                    <div class="card-body">
+                        <span class="badge badge-topik badge-jaringan mb-3">Jaringan</span>
+                        <h5 class="card-title">D. D. Khoiri</h5>
+                        <p class="card-text">Koneksi WiFi di rumah sering putus-putus padahal sinyal full. Apa solusinya tanpa harus ganti router baru?</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container py-5" id="form-konsultasi">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8">
+                <div class="card form-card shadow">
+                    <div class="card-header">
+                        <h2>Form Konsultasi</h2>
+                        <p class="mb-0 mt-2" style="opacity: 0.85;">Isi data berikut, tim kami akan menghubungi kamu secepatnya</p>
+                    </div>
+                    <div class="card-body p-4">
+                        <form onsubmit="return handleConsultationSubmit(event)">
+                            <div class="mb-3">
+                                <label for="nama" class="form-label">Nama</label>
+                                <input type="text" class="form-control" id="nama" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="kontak" class="form-label">Email / No. HP</label>
+                                <input type="text" class="form-control" id="kontak" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="topik" class="form-label">Topik Konsultasi</label>
+                                <select class="form-select" id="topik" required>
+                                    <option value="">Pilih Topik</option>
+                                    <option value="Hardware">Hardware</option>
+                                    <option value="Software">Software</option>
+                                    <option value="Jaringan">Jaringan</option>
+                                    <option value="Lainnya">Lainnya</option>
+                                </select>
+                            </div>
+                            <div class="mb-4">
+                                <label for="pesan" class="form-label">Pesan Singkat</label>
+                                <textarea class="form-control" id="pesan" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-submit w-100">Kirim Konsultasi</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="container-fluid text-center py-4 mt-4">
+        <h3 class="fw-bold fs-4 mb-2 text-gold">FixITin</h3>
+        <p class="mb-2" style="color: #CEB35A; font-size: 0.85rem;">&copy; Copyright 2026. All Rights Reserved.</p>
+        <p class="mb-2" style="color: #CEB35A; font-size: 0.85rem;">by Daffa Dziiba'an Khoiri 2510817210005 - Teknologi Informasi </p>
+        <div class="social-icons d-flex justify-content-center align-items-center">
+            <a href="mailto:daffa.dziibaan.khoiri@gmail.com" title="Email">
+                <i class="bi bi-envelope"></i>
+            </a>
+
+            <a href="https://instagram.com/daffalx_" target="_blank" title="Instagram">
+                <i class="bi bi-instagram"></i>
+            </a>
+
+            <a href="https://github.com/daffadziibaankhoiri" target="_blank" title="GitHub">
+                <i class="bi bi-github"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/daffa-dziiba-an-khoiri-9ab540267" target="_blank" title="LinkedIn">
+                <i class="bi bi-linkedin"></i>
+            </a>
+
+            <a href="https://www.youtube.com/@daffadziibaankhoiri1176" target="_blank" title="YouTube">
+                <i class="bi bi-youtube"></i>
+            </a>
+
+            <a href="https://wa.me/6283152012329" target="_blank" title="WhatsApp">
+                <i class="bi bi-whatsapp"></i>
+            </a>
+        </div>
+    </footer>
+    <div class="modal fade" id="infoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content info-modal">
+                <div class="modal-body text-center p-4">
+                    <div class="modal-icon mb-3" id="modalIcon">
+                        <i class="bi bi-check-circle-fill"></i>
+                    </div>
+                    <h5 class="modal-title-custom mb-2" id="modalTitle">Judul</h5>
+                    <p class="mb-3" id="modalMessage">Pesan</p>
+                    <div class="modal-summary text-start mb-4" id="modalSummary"></div>
+                    <button type="button" class="btn btn-submit w-100" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function showModal(type, title, message, summaryHTML){
+            const icon = document.getElementById('modalIcon');
+            const summary = document.getElementById('modalSummary');
+
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalMessage').textContent = message;
+
+            if(summaryHTML){
+                summary.innerHTML = summaryHTML;
+                summary.style.display = 'block';
+            } else {
+                summary.innerHTML = '';
+                summary.style.display = 'none';
+            }
+
+            if(type === 'success'){
+                icon.innerHTML = '<i class="bi bi-check-circle-fill"></i>';
+                icon.className = 'modal-icon mb-3 icon-success';
+            } else {
+                icon.innerHTML = '<i class="bi bi-info-circle-fill"></i>';
+                icon.className = 'modal-icon mb-3 icon-info';
+            }
+
+            const modal = new bootstrap.Modal(document.getElementById('infoModal'));
+            modal.show();
+        }
+
+        function handleSearch(event){
+            event.preventDefault();
+            showModal('info', 'Fitur Belum Tersedia', 'Fitur pencarian belum tersedia. Silakan gunakan form konsultasi di bawah untuk bertanya.');
+            return false;
+        }
+
+        function handleConsultationSubmit(event){
+            event.preventDefault();
+
+            const nama = document.getElementById('nama').value;
+            const kontak = document.getElementById('kontak').value;
+            const topik = document.getElementById('topik').value;
+            const pesan = document.getElementById('pesan').value;
+
+            const summaryHTML = `
+                <div class="summary-item"><span class="summary-label">Nama</span><span class="summary-value">${nama}</span></div>
+                <div class="summary-item"><span class="summary-label">Email / No. HP</span><span class="summary-value">${kontak}</span></div>
+                <div class="summary-item"><span class="summary-label">Topik</span><span class="summary-value">${topik}</span></div>
+                <div class="summary-item"><span class="summary-label">Pesan</span><span class="summary-value">${pesan}</span></div>
+            `;
+
+            showModal('success', 'Konsultasi Terkirim', 'Terima kasih! Berikut ringkasan data yang kamu kirimkan:', summaryHTML);
+            event.target.reset();
+            return false;
+        }
+    </script>
+</body>
+</html>
