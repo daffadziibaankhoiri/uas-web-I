@@ -6,6 +6,7 @@
     <title>FixITin</title>
     <link rel="icon" type="image/x-icon" href="logo.png">
     <link href="style.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
@@ -16,7 +17,7 @@
             <img src="logo.png" alt="FixITin Logo" width="36" height="36" class="me-2">
             FixITin
         </a>
-        <form class="d-flex" onsubmit="return handleSearch(event)">
+        <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn" style="background-color: #d42824; color: white;" type="submit">Search</button>
         </form>
@@ -125,7 +126,7 @@
                         <p class="mb-0 mt-2" style="opacity: 0.85;">Isi data berikut, tim kami akan menghubungi kamu secepatnya</p>
                     </div>
                     <div class="card-body p-4">
-                        <form onsubmit="return handleConsultationSubmit(event)">
+                       <form id="formKonsultasi">
                             <div class="mb-3">
                                 <label for="nama" class="form-label">Nama</label>
                                 <input type="text" class="form-control" id="nama" required>
@@ -202,46 +203,42 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        function showModal(type, title, message, summaryHTML){
-            const icon = document.getElementById('modalIcon');
-            const summary = document.getElementById('modalSummary');
+        $(document).ready(function(){
 
-            document.getElementById('modalTitle').textContent = title;
-            document.getElementById('modalMessage').textContent = message;
+        function showModal(type, title, message, summaryHTML){
+            const $icon = $('#modalIcon');
+            const $summary = $('#modalSummary');
+
+            $('#modalTitle').text(title);
+            $('#modalMessage').text(message);
 
             if(summaryHTML){
-                summary.innerHTML = summaryHTML;
-                summary.style.display = 'block';
+                $summary.html(summaryHTML).show();
             } else {
-                summary.innerHTML = '';
-                summary.style.display = 'none';
+                $summary.html('').hide();
             }
 
             if(type === 'success'){
-                icon.innerHTML = '<i class="bi bi-check-circle-fill"></i>';
-                icon.className = 'modal-icon mb-3 icon-success';
+                $icon.html('<i class="bi bi-check-circle-fill"></i>').attr('class', 'modal-icon mb-3 icon-success');
             } else {
-                icon.innerHTML = '<i class="bi bi-info-circle-fill"></i>';
-                icon.className = 'modal-icon mb-3 icon-info';
+                $icon.html('<i class="bi bi-info-circle-fill"></i>').attr('class', 'modal-icon mb-3 icon-info');
             }
 
-            const modal = new bootstrap.Modal(document.getElementById('infoModal'));
-            modal.show();
+            $('#infoModal').modal('show');
         }
 
-        function handleSearch(event){
+        $('.navbar form').on('submit', function(event){
             event.preventDefault();
             showModal('info', 'Fitur Belum Tersedia', 'Fitur pencarian belum tersedia. Silakan gunakan form konsultasi di bawah untuk bertanya.');
-            return false;
-        }
+        });
 
-        function handleConsultationSubmit(event){
+        $('#formKonsultasi').on('submit', function(event){
             event.preventDefault();
 
-            const nama = document.getElementById('nama').value;
-            const kontak = document.getElementById('kontak').value;
-            const topik = document.getElementById('topik').value;
-            const pesan = document.getElementById('pesan').value;
+            const nama = $('#nama').val();
+            const kontak = $('#kontak').val();
+            const topik = $('#topik').val();
+            const pesan = $('#pesan').val();
 
             const summaryHTML = `
                 <div class="summary-item"><span class="summary-label">Nama</span><span class="summary-value">${nama}</span></div>
@@ -251,9 +248,10 @@
             `;
 
             showModal('success', 'Konsultasi Terkirim', 'Terima kasih! Berikut ringkasan data yang kamu kirimkan:', summaryHTML);
-            event.target.reset();
-            return false;
-        }
+            this.reset();
+        });
+
+    });
     </script>
 </body>
 </html>
